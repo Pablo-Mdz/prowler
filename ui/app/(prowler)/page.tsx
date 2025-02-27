@@ -1,5 +1,6 @@
 import { Spacer } from "@nextui-org/react";
 import { format, subDays } from "date-fns";
+import { Bell } from "lucide-react";
 import { Suspense } from "react";
 
 import { getFindings } from "@/actions/findings/findings";
@@ -33,7 +34,12 @@ export default function Home({
   const searchParamsKey = JSON.stringify(searchParams || {});
   return (
     <>
-      <Header title="Scan Overview" icon="solar:pie-chart-2-outline" />
+      <div className="relative">
+        <Header title="Scan Overview" icon="solar:pie-chart-2-outline" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2">
+          <Bell className="h-5 w-5 cursor-pointer text-default-500 transition-colors hover:text-default-900" />
+        </div>
+      </div>
       <Spacer y={4} />
       <FilterControls providers />
       <div className="mx-auto space-y-8 px-0 py-6">
